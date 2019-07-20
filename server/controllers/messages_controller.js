@@ -10,7 +10,7 @@ module.exports = {
     },
 
     read: (req, res) => {
-        res.send(200).send(messages);
+        res.status(200).send(messages);
     },
 
     update: (req, res) => {
@@ -19,7 +19,7 @@ module.exports = {
         const messageIndex = messages.findIndex(message => message.id == updateID);
         let message = messages[messageIndex];
 
-        message = {
+        messages[messageIndex] = {
             id: message.id,
             text: text || message.text,
             time: message.time,
